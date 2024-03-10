@@ -3,7 +3,7 @@ import { StyleSheet, View, Pressable } from "react-native"
 import { Ionicons } from '@expo/vector-icons'
 
 import MenuItem from '../components/MenuItem'
-import { menuItems } from '../data/menu'
+import { useShoppingCart } from '../providers/ShoppingContext'
 
 export const CartButton = ({ onPress }) => (
   <Pressable
@@ -24,6 +24,8 @@ export const CartButton = ({ onPress }) => (
 )
 
 export default () => {
+  const cart = useShoppingCart()
+
   return (
     <View
       style={{
@@ -32,11 +34,11 @@ export default () => {
         backgroundColor: 'white'
       }}
     >
-      {menuItems.map(item => (
+      {Object.keys(cart).map(itemId => (
         <MenuItem
-          key={item.id}
-          name={item.name}
-          price={item.price}
+          key={itemId}
+          name={cart[itemId].name}
+          price={cart[itemId].price}
         />
       ))}
     </View>

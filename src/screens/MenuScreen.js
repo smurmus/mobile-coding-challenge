@@ -24,7 +24,7 @@ export const CartButton = ({ onPress }) => (
 )
 
 export default () => {
-  const cart = useShoppingCart()
+  const { cart } = useShoppingCart()
 
   return (
     <View
@@ -35,11 +35,7 @@ export default () => {
       }}
     >
       {Object.keys(cart).map(itemId => (
-        <MenuItem
-          key={itemId}
-          name={cart[itemId].name}
-          price={cart[itemId].price}
-        />
+        <MenuItem key={itemId} itemId={itemId} />
       ))}
     </View>
   )

@@ -1,32 +1,28 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 
 import UpdateItemButton from './UpdateItemCountButton'
+import { useShoppingCart, useShoppingCartDispatch } from '../providers/ShoppingContext'
 
-/**
- * 
- * @param {string} name Name of the menu item
- * @param {number} price Price of (1) count of the item
- * @returns JSX.Element
- */
-const MenuItem = ({ name, price, onPress = () => {} }) => {
+const MenuItem = ({ itemId }) => {
+  const { cart } = useShoppingCart()
+  const dispatch = useShoppingCartDispatch()
+
+  const { name, price } = cart[itemId]
+
   return (
-    <Pressable
-      style={({ pressed }) => [
-        { backgroundColor: pressed ? 'deepskyblue' : 'white' },
-        styles.container,
-      ]}
-      onPress={onPress}
-    >
+    <>
       <View style={styles.content}>
         <Text>{name}</Text>
         <View style={styles.right}>
           <Text style={{ marginRight: 8 }}>${price}</Text>
-          <UpdateItemButton.Add />
+          <UpdateItemButton.Add
+            onPress={() => dispatch({ type: 'add', id: itemId })}
+          />
         </View>
       </View>
       <View style={styles.separator} />
-    </Pressable>
+    </>
   )
 }
 
@@ -40,10 +36,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 4,
     alignItems: 'center',
-  },
-  container: {
-    display: 'flex',
-    width: '100%',
   },
   right: {
     display: 'flex',

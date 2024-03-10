@@ -5,7 +5,7 @@ import UpdateItemButton from './UpdateItemCountButton'
 import { useShoppingCart, useShoppingCartDispatch } from '../providers/ShoppingContext'
 
 const CartItem = ({ itemId }) => {
-  const cart = useShoppingCart()
+  const { cart } = useShoppingCart()
   const dispatch = useShoppingCartDispatch()
   
   const { name, price, quantity } = cart[itemId]

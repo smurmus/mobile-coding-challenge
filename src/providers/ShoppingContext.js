@@ -18,7 +18,7 @@ const ShoppingCartDispatchContext = createContext(null)
 export const ShoppingCartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(
     shoppingCartReducer,
-    initialShoppingCart
+    { cart: initialShoppingCart, total: 0 }
   )
 
   return (
@@ -40,32 +40,38 @@ export const useShoppingCartDispatch = () => useContext(ShoppingCartDispatchCont
  * @param {{ id: string, type: 'add'|'remove' }} dispatch - Item ID and the type of update
  * @returns {Object.<string, CartItem}
  */
-const shoppingCartReducer = (cart, dispatch) => {
+const shoppingCartReducer = ({ cart, total }, dispatch) => {
   const currentQuantity = cart[dispatch.id].quantity
 
   switch (dispatch.type) {
   case 'add': {
     return {
-      ...cart,
-      [dispatch.id]: {
-        ...cart[dispatch.id],
-        quantity: currentQuantity + 1,
+      cart: {
+        ...cart,
+        [dispatch.id]: {
+          ...cart[dispatch.id],
+          quantity: currentQuantity + 1,
+        },
       },
+      total: total + cart[dispatch.id].price,
     }
   }
   case 'remove': {
     // @TODO handle if quantity gets below/hits 0
     return {
-      ...cart,
-      [dispatch.id]: {
-        ...cart[dispatch.id],
-        quantity: currentQuantity - 1,
+      cart: {
+        ...cart,
+        [dispatch.id]: {
+          ...cart[dispatch.id],
+          quantity: currentQuantity - 1,
+        },
       },
+      total: total - cart[dispatch.id].price,
     }
   }
   default: {
     // throw an error maybe?
-    return cart
+    return { cart, total }
   }
   }
 }

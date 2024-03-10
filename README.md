@@ -18,16 +18,16 @@ Again, thanks for taking the time to do this project and here's hoping we talk s
 ---
 
 ## [Project](#project)
-* This project revolves around building a simple menu and shopping cart.
-* The user can add items from the menu to the shopping cart.
-* The user can change screens to the shopping cart.
-* The shopping cart will have all the items that were added from the menu screen and an 'amount' display object showing
+This project revolves around building a simple menu and shopping cart.
+- [ ] The user can add items from the menu to the shopping cart.
+- [x] The user can change screens to the shopping cart.
+- [ ] The shopping cart will have all the items that were added from the menu screen and an 'amount' display object showing
 the number of times that item was added to the shopping cart.
-* Users should have some feedback that an item was added to the cart.
-* There should be a (+) button to add 1 to the amount for an item and a (-) button to subtract 1 from the amount
-* The shopping cart should also include the base price of the item, and the total price (base x amount)
-* When an item in the shopping cart reaches 0 amount, it should be removed from the shopping cart
-* There should be a total cost that is a sum of all the items (x the amount) in the shopping cart
+- [ ] Users should have some feedback that an item was added to the cart.
+- [x] There should be a (+) button to add 1 to the amount for an item and a (-) button to subtract 1 from the amount
+- [x] The shopping cart should also include the base price of the item, and the total price (base x amount)
+- [ ] When an item in the shopping cart reaches 0 amount, it should be removed from the shopping cart
+- [ ] There should be a total cost that is a sum of all the items (x the amount) in the shopping cart
 displayed at the bottom
 
 ## Technical Detail
@@ -70,6 +70,6 @@ best to review and respond to submissions within 1-2 business days.
 Here is how a completed project could look
 It does not have to look like this
 
-<img width="381" alt="Screen Shot 2021-07-28 at 12 06 10 AM" src="https://user-images.githubusercontent.com/3309671/127279653-3e9726f4-2f9e-45d3-8ad2-3046889fb1f5.png">
-<img width="398" alt="Screen Shot 2021-07-27 at 11 58 53 PM" src="https://user-images.githubusercontent.com/3309671/127279655-e7b3e7a6-cc20-44d9-ba69-6775fbbb36cc.png">
+<img width="381" alt="Screen Shot 2021-07-28 at 12 06 10 AM" src="https://user-images.githubusercontent.com/3309671/127279653-3e9726f4-2f9e-45d3-8ad2-3046889fb1f5.png" />
+<img width="398" alt="Screen Shot 2021-07-27 at 11 58 53 PM" src="https://user-images.githubusercontent.com/3309671/127279655-e7b3e7a6-cc20-44d9-ba69-6775fbbb36cc.png" />
 

@@ -22,7 +22,7 @@ const AddItemButton = (props) => (
     {({ pressed }) => (
       <Ionicons
         name="add-circle"
-        size={24}
+        size={32}
         color={pressed ? 'forestgreen' : 'darkgreen'}
       />
     )}
@@ -34,7 +34,7 @@ const RemoveItemButton = (props) => (
     {({ pressed }) => (
       <Ionicons
         name="remove-circle"
-        size={24}
+        size={32}
         color={pressed ? 'firebrick' : 'darkred'}
       />
     )}

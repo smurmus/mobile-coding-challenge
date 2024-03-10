@@ -1,5 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+
+import CartItem from '../components/CartItem'
 
 export default () => {
   return (
@@ -8,7 +10,7 @@ export default () => {
       justifyContent: 'center',
       flex: 1
     }}>
-      <Text>Checkout Screen</Text>
+      <CartItem itemId="gyuudon" />
     </View>
   )
 }

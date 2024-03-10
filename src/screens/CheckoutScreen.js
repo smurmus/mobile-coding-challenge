@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from "react-native"
+import { View, Text } from 'react-native'
 
 export default () => {
   return (
@@ -8,7 +8,7 @@ export default () => {
       justifyContent: 'center',
       flex: 1
     }}>
-      <Text >Start working on your App!</Text>
+      <Text>Checkout Screen</Text>
     </View>
   )
 }

@@ -2,6 +2,8 @@ import React, { createContext, useContext, useReducer } from 'react'
 
 import { menuItems } from '../data/menu'
 
+/** @TODO update jsdoc types lol */
+
 /**
  * @typedef CartItem
  * @type {object}
@@ -57,7 +59,6 @@ const shoppingCartReducer = ({ cart, total }, dispatch) => {
     }
   }
   case 'remove': {
-    // @TODO handle if quantity gets below/hits 0
     return {
       cart: {
         ...cart,

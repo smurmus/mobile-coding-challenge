@@ -19,15 +19,15 @@ Again, thanks for taking the time to do this project and here's hoping we talk s
 
 ## [Project](#project)
 This project revolves around building a simple menu and shopping cart.
-- [ ] The user can add items from the menu to the shopping cart.
+- [x] The user can add items from the menu to the shopping cart.
 - [x] The user can change screens to the shopping cart.
-- [ ] The shopping cart will have all the items that were added from the menu screen and an 'amount' display object showing
+- [x] The shopping cart will have all the items that were added from the menu screen and an 'amount' display object showing
 the number of times that item was added to the shopping cart.
-- [ ] Users should have some feedback that an item was added to the cart.
+- [x] Users should have some feedback that an item was added to the cart.
 - [x] There should be a (+) button to add 1 to the amount for an item and a (-) button to subtract 1 from the amount
 - [x] The shopping cart should also include the base price of the item, and the total price (base x amount)
-- [ ] When an item in the shopping cart reaches 0 amount, it should be removed from the shopping cart
-- [ ] There should be a total cost that is a sum of all the items (x the amount) in the shopping cart
+- [x] When an item in the shopping cart reaches 0 amount, it should be removed from the shopping cart
+- [x] There should be a total cost that is a sum of all the items (x the amount) in the shopping cart
 displayed at the bottom
 
 ## Technical Detail

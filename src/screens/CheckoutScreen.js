@@ -6,7 +6,9 @@ import { useShoppingCart } from '../providers/ShoppingContext'
 
 export default () => {
   const { cart, total } = useShoppingCart()
-  console.log('TOTES:::', cart)
+  const selectedItems = Object.keys(cart).filter(itemId => (
+    cart[itemId].quantity > 0 
+  ))
 
   return (
     <View style={styles.container}>
@@ -16,7 +18,7 @@ export default () => {
           flex: 1
         }}
       >
-        {Object.keys(cart).map(itemId => (
+        {selectedItems.map(itemId => (
           <CartItem key={itemId} itemId={itemId} />
         ))}
       </View>

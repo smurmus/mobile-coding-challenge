@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import Toast from 'react-native-root-toast'
 
 import UpdateItemButton from './UpdateItemCountButton'
 import { useShoppingCart, useShoppingCartDispatch } from '../providers/ShoppingContext'
@@ -20,12 +21,24 @@ const CartItem = ({ itemId }) => {
       <View style={styles.right}>
         <UpdateItemButton.Remove
           style={{ marginRight: 12 }}
-          onPress={() => dispatch({ type: 'remove', id: itemId })}
+          onPress={() => {
+            dispatch({ type: 'remove', id: itemId })
+            Toast.show(`${name} removed`, {
+              duration: Toast.durations.SHORT,
+              position: Toast.positions.CENTER
+            })
+          }}
         />
         <Text style={styles.label}>{quantity}</Text>
         <UpdateItemButton.Add
           style={{ marginLeft: 12 }}
-          onPress={() => dispatch({ type: 'add', id: itemId })}
+          onPress={() => {
+            dispatch({ type: 'add', id: itemId })
+            Toast.show(`${name} added`, {
+              duration: Toast.durations.SHORT,
+              position: Toast.positions.CENTER
+            })
+          }}
         />
       </View>
     </View>

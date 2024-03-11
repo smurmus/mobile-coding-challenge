@@ -5,6 +5,11 @@ import Toast from 'react-native-root-toast'
 import UpdateItemButton from './UpdateItemCountButton'
 import { useShoppingCart, useShoppingCartDispatch } from '../providers/ShoppingContext'
 
+/**
+ * 
+ * @param {{ itemId: string }} props 
+ * @returns JSX.Element
+ */
 const MenuItem = ({ itemId }) => {
   const { cart } = useShoppingCart()
   const dispatch = useShoppingCartDispatch()

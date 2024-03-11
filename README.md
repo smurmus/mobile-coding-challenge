@@ -1,5 +1,52 @@
 # Wonderschool Mobile Project
 
+## Submission Note
+This was genuinely a fun project! Admittedly, I was stubborn about UI details in the beginning, but decided to move on. If this was a "real" project, I would consult with my team about the UX and/or implementation.
+
+Otherwise, in terms of future changes to this application, I would:
+
+#### 📱 Application:
+- Install and convert everything to Typescript
+- Add tests!
+- Update to the latest Expo since [global `expo-cli` is deprecated](https://docs.expo.dev/more/expo-cli/)
+- Pre-commit hooks to make checks for tests, linting, etc
+- Separate branches + branch protections
+
+*Enabled by:*
+- The application being small enough that it wouldn't be too tedious add tests/convert
+- JSDoc comments I left would make the process of typing everything pretty fast/efficient
+- Can easily build off existing linter settings
+
+
+#### 🧩 UI:
+- Improve the UI elements to use more standardized components across the board. Maybe install/configure a library like [`tamagui`](https://tamagui.dev/)
+- Ensure scroll capabilities on all screens
+- Update the `CartButton` to have a small indicator of how many items are in the cart
+- Pictures/descriptions for the menu items, to then display
+- Animating adding/removing of a cart item, rather than just blinking away
+
+*Enabled by:*
+- Components are quite modular while remaining customizable, so updating or changing would be straightforward
+- Shared underlying components (i.e. `UpdateItemCountButton`) means we can just change things in one place to update the look across the screens
+    - Even if we didn't use a 3rd party UI library, I'd want to make a very basic design system/component library, especially for things like `<Text />`--can just add it to components folder or even a subfolder for "atoms"
+
+
+#### 🚀 Features:
+- Depending on what kind of features we would want to add, I would consider using a bottom tab navigator with Menu and Cart as two primary tabs
+- Custom provider for theme, if we wanted to have different themes
+- Swiping gestures to remove items
+- Allowing multiple carts at once
+
+*Enabled by:*
+- With the custom provider, changing up the navigation paradigm wouldn't affect how we access the data
+    - For multiple carts, we could make one of the tabs `Cart` and then have a list view of created carts that then drill into their contents
+- Can easily add theme provider to the folder + wrap the application
+- Can update existing `ShoppingCartProvider` to manage state of the various carts; or create a separate multi-cart contexts
+
+...and any number of ideas sparked from discussions with other people, more brainstorming, etc.
+
+---
+
 ## Introduction
 
 **Thanks for your interest in joining the Wonderschool engineering team! Our team is on a mission to ensure every child has access to early education that help them realize their potential. We believe we can impact the lives of every child by building well designed and well engineered products.**
@@ -35,7 +82,7 @@ displayed at the bottom
 * Prefer to use hooks
 * Use immutable data and js functional higher order functions (reduce, map, filter, etc) when possible
 * Make sure code is styled and linted. eslint and prettier has been set up.
-* import the data from `src/data/menu`. Treat this data as if it were from data you received from an API.Store this data however you see fit.
+* import the data from `src/data/menu`. Treat this data as if it were from data you received from an API. Store this data however you see fit.
 * Do not use any third party state manager (ie. redux). Please use context api.
 * `react-navigation` for navigation has already been set up in the project, but feel free to handle navigation anyway you want. 
 * Please treat this as if it's a greenfield project that is going to be worked on by multiple developers. 

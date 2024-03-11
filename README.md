@@ -11,6 +11,7 @@ Otherwise, in terms of future changes to this application, I would:
 - Update to the latest Expo since [global `expo-cli` is deprecated](https://docs.expo.dev/more/expo-cli/)
 - Pre-commit hooks to make checks for tests, linting, etc
 - Separate branches + branch protections
+- Ensure things look/feel correct across both iOS and Android
 
 *Enabled by:*
 - The application being small enough that it wouldn't be too tedious add tests/convert

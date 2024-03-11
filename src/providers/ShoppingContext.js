@@ -2,14 +2,12 @@ import React, { createContext, useContext, useReducer } from 'react'
 
 import { menuItems } from '../data/menu'
 
-/** @TODO update jsdoc types lol */
-
 /**
  * @typedef CartItem
  * @type {object}
- * @property {string} id - menu item's ID
  * @property {string} name - menu item name that appears in list
- * @property {number} quantity - how many of this item are in the cart; can be 0
+ * @property {number} price - price of (1) count of this item
+ * @property {number} quantity - total count of this item in the cart
  * 
  */
 
@@ -37,10 +35,11 @@ export const useShoppingCart = () => useContext(ShoppingCartContext)
 export const useShoppingCartDispatch = () => useContext(ShoppingCartDispatchContext)
 
 /**
- * 
- * @param {Object.<string, CartItem>} cart - The items that a user has in the shopping cart
+ * @typedef CartState
+ * @type {{ cart: CartItem, total: number }}
+ * @param {CartState} cart - The items that a user has in the shopping cart
  * @param {{ id: string, type: 'add'|'remove' }} dispatch - Item ID and the type of update
- * @returns {Object.<string, CartItem}
+ * @returns {CartState}
  */
 const shoppingCartReducer = ({ cart, total }, dispatch) => {
   const currentQuantity = cart[dispatch.id].quantity
@@ -71,15 +70,14 @@ const shoppingCartReducer = ({ cart, total }, dispatch) => {
     }
   }
   default: {
-    // throw an error maybe?
-    return { cart, total }
+    throw Error('Unknown action: ' + action.type)
   }
   }
 }
 
 /**
  * @type {Object.<string, CartItem>} - Transform menu data to mapping to track
- * totals in the cart. Quantities begin at 0 for all.
+ * totals in the cart, returns object where key is an item's ID.
  */
 const initialShoppingCart = menuItems.reduce((prev, curr) => ({
   ...prev,

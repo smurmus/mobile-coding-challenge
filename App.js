@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { RootSiblingParent } from 'react-native-root-siblings'
 
 import MenuScreen, { CartButton } from 'screens/MenuScreen'
-import CheckoutScreen from 'screens/CheckoutScreen'
+import ShoppingCartScreen from 'screens/ShoppingCartScreen'
 import { ShoppingCartProvider } from './src/providers/ShoppingContext'
 
 const Stack = createStackNavigator()
@@ -28,7 +28,7 @@ export default function App() {
                 ),
               })}
             />
-            <Stack.Screen name="Cart" component={CheckoutScreen} />
+            <Stack.Screen name="Cart" component={ShoppingCartScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ShoppingCartProvider>
